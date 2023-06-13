@@ -1,0 +1,90 @@
+{
+  "name": "my-electron-app",
+  "version": "0.1.0",
+  "private": true,
+  "main": "public/electron.js",
+  "author": "zhz",
+  "description": "my-electron-app",
+  "homepage": ".",
+  "scripts": {
+    "dev": "react-scripts build  && electron .",
+    "start": "react-scripts start",
+    "build": "react-scripts build && electron-builder",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "build": {
+    "appId": "com.example.my-electron-app",
+    "productName": "My Electron App",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "!node_modules/electron-*",
+      "!node_modules/electron-builder"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    }
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "electron-is-dev": "^2.0.0",
+    "electron-reload": "^2.0.0-alpha.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "electron-builder": "^23.6.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "electron": "^25.1.0",
+    "electron-is-dev": "^2.0.0",
+    "electron-reload": "^2.0.0-alpha.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
