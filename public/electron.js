@@ -7,13 +7,15 @@ let tray = null
 function createWindow() {
     // 创建浏览器窗口
     const win = new BrowserWindow({
-        width: 400,
-        height: 300,
+        width: 280,
+        height: 499,
+        frame: false,
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true,
             preload: path.join(__dirname, 'preload.js')
         },
+        backgroundColor:'darkgray',
         icon: './public/icon.jpeg'
     });
     // 加载应用的主页面
@@ -24,11 +26,23 @@ function createWindow() {
     // setInterval(()=>{
     //     win.webContents.send('message',{msg:'服务端推送消息'})
     // },2000)
-    win.on('ready-to-show', () => {
-        const icon = nativeImage.createFromPath('./public/icon.jpeg')
-        tray = new Tray(icon)
-        tray.setToolTip('This is my application.')
-    })
+    const icon = nativeImage.createFromPath('/public/icon.jpeg')
+    tray = new Tray(icon)
+    tray.setToolTip('测试应用')
+    const contextMenu = Menu.buildFromTemplate([
+        {label: '测试', type: 'radio'},
+        {label: '推出', type: 'radio'}
+    ])
+    contextMenu.items[1].checked = false
+    tray.setContextMenu(contextMenu)
+    let clickCallBack = () => {
+        win.show()
+    }
+    if (process.platform === `darwin`) {
+        tray.on('mouse-up', clickCallBack)
+    } else {
+        tray.on('click', clickCallBack)
+    }
 
     win.on('close', () => {
         if (app) app.quit()
@@ -70,4 +84,8 @@ ipcMain.on('notification', (e, message) => {
         title: NOTIFICATION_TITLE,
         body: message
     }).show()
+})
+
+ipcMain.on('quit', (e, msg) => {
+    app.quit();
 })

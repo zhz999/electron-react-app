@@ -14,6 +14,9 @@ function App() {
         setOpen(false);
     };
 
+    const handleQuit = () => {
+        window.ipc.sendMessage('quit')
+    }
 
     // 来自服务端消息
     useEffect(() => {
@@ -35,6 +38,7 @@ function App() {
         <>
             <AlertBox open={open} handleClose={handleClose} message={message}/>
             <div className="App">
+                <section className="App-section" onClick={handleQuit}>x</section>
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
                     <p>
