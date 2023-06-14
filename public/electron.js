@@ -1,7 +1,8 @@
 // public/electron.js
 const {app, BrowserWindow, ipcMain, Tray, Menu, Notification, nativeImage} = require('electron');
 const path = require('path');
-
+// https://www.electronjs.org/zh/docs/latest/api/frameless-window#%E7%82%B9%E5%87%BB%E7%A9%BF%E9%80%8F%E7%AA%97%E5%8F%A3
+// https://www.electronjs.org/zh/docs/latest/api/tray
 let tray = null
 
 function createWindow() {
