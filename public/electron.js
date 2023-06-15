@@ -22,7 +22,7 @@ function createWindow() {
     // 加载应用的主页面
     win.loadURL(`file://${path.join(__dirname, '../build/index.html')}`);
     // 打开开发者工具
-    // win.webContents.openDevTools();
+    win.webContents.openDevTools();
 
     // setInterval(()=>{
     //     win.webContents.send('message',{msg:'服务端推送消息'})

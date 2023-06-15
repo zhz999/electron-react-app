@@ -5,6 +5,10 @@ import {useEffect, useState} from "react";
 import {sendNotification} from "./Notification";
 import AlertBox from "./Alert";
 
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+
 function App() {
 
     const [message, setMmessage] = useState('')
@@ -38,7 +42,10 @@ function App() {
         <>
             <AlertBox open={open} handleClose={handleClose} message={message}/>
             <div className="App">
-                <section className="App-section" onClick={handleQuit}>x</section>
+                <IconButton aria-label="delete" size="small" className="App-section">
+                    <DeleteIcon fontSize="inherit" />
+                </IconButton>
+                {/*<section className="App-section" onClick={handleQuit}>x</section>*/}
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
                     <p>
