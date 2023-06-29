@@ -40,8 +40,8 @@ Your task: Create 4 distinct prompts for each concept [1], varying in descriptio
 - Put different prompts in the same structure.
 - output the prompts as json
 
-Example Prompts: [{"en": "英文描述1","zh_cn": "中文翻译1"},{"en": "英文描述2","zh_cn": "中文翻译2"}]` },
-    { role: "user", content: "Classroom" },
+Example Prompts: {"en": "英文描述1","zh_cn": "中文翻译1"}` },
+    { role: "user", content: "pig" },
 ];
 
 async function main() {
